@@ -15,7 +15,6 @@ Library
   HS-Source-Dirs:       src
   GHC-Options:          -Wall
   Exposed-Modules:      Lucid.Scaffold
-  Other-Modules:        Lucid.Scaffold.Internal
   Build-Depends:        base >= 4 && < 5
                       , lucid >= 2.5
                       , text

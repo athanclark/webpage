@@ -5,7 +5,6 @@
 
 module Lucid.Scaffold where
 
-import Lucid.Scaffold.Internal
 
 import Lucid
 import Lucid.Base
