@@ -2,7 +2,7 @@ Name:                   generic-lucid-scaffold
 Version:                0.0.1
 Author:                 Athan Clark <athan.clark@gmail.com>
 Maintainer:             Athan Clark <athan.clark@gmail.com>
-License:                BSD3
+License:                MIT
 License-File:           LICENSE
 Synopsis:               General-purpose web page scaffold for Lucid.
 Description:
