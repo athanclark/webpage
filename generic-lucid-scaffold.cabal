@@ -18,6 +18,7 @@ Library
   Other-Modules:        Lucid.Scaffold.Internal
   Build-Depends:        base >= 4 && < 5
                       , lucid >= 2.5
+                      , text
 
 Source-Repository head
   Type:                 git
