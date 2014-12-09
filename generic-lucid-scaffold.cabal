@@ -4,8 +4,9 @@ Author:                 Athan Clark <athan.clark@gmail.com>
 Maintainer:             Athan Clark <athan.clark@gmail.com>
 License:                BSD3
 License-File:           LICENSE
--- Synopsis:               
--- Description:            
+Synopsis:               General-purpose web page scaffold for Lucid.
+Description:
+  This is a general organization scheme for web pages, implemented for Lucid.
 Cabal-Version:          >= 1.10
 Build-Type:             Simple
 
@@ -16,16 +17,7 @@ Library
   Exposed-Modules:      Lucid.Scaffold
   Other-Modules:        Lucid.Scaffold.Internal
   Build-Depends:        base >= 4 && < 5
-
-Test-Suite spec
-  Type:                 exitcode-stdio-1.0
-  Default-Language:     Haskell2010
-  Hs-Source-Dirs:       src
-                      , test
-  Ghc-Options:          -Wall
-  Main-Is:              Spec.hs
-  Build-Depends:        base
-                      , hspec
+                      , lucid >= 2.5
 
 Source-Repository head
   Type:                 git

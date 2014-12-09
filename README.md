@@ -1,21 +1,8 @@
 # generic-lucid-scaffold
 
-TODO: Write description here
-
-## Installation
-
-TODO: Write installation instructions here
-
-## Usage
-
-TODO: Write usage instructions here
-
-## How to run tests
-
-```
-cabal configure --enable-tests && cabal build && cabal test
-```
+This is a general web page scaffold written in Haskell for the 
+[Lucid](https://github.com/chrisdone/lucid) Html DSL.
 
 ## Contributing
 
-TODO: Write contribution instructions here
+Fork, Pull-Request, repeat.
