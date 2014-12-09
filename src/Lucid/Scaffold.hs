@@ -13,41 +13,16 @@ import qualified Data.Text as T
 
 import Data.Monoid
 
-data WebPage m where
-  WebPage :: Monad m =>
-             T.Text -- ^ Page title
-          -> T.Text -- ^ Favicon url
-          -> (HtmlT m ())
-          -> (HtmlT m ()) -- ^ JavaScript to include at the top of the page
-          -> (HtmlT m ()) -- ^ JavaScript to include before @/<style/>@ tags
-          -> (HtmlT m ()) -- ^ Styles
-          -> (HtmlT m ()) -- ^ JavaScript to include after @/<style/>@ tags - see <http://modernizr.com Modernizr>
-          -> (HtmlT m ()) -- ^ JavaScript to include at the base of @/<body/>@
-          -> WebPage m
+data WebPage m = WebPage {           pageTitle :: T.Text -- ^ Page title
+                         ,             favicon :: T.Text -- ^ Favicon url
+                         ,            metaVars :: (HtmlT m ())
+                         ,         initScripts :: (HtmlT m ()) -- ^ JavaScript to include at the top of the page
+                         , beforeStylesScripts :: (HtmlT m ()) -- ^ JavaScript to include before @/<style/>@ tags
+                         ,              styles :: (HtmlT m ()) -- ^ Styles
+                         ,  afterStylesScripts :: (HtmlT m ()) -- ^ JavaScript to include after @/<style/>@ tags - see <http://modernizr.com Modernizr>
+                         ,         bodyScripts :: (HtmlT m ()) -- ^ JavaScript to include at the base of @/<body/>@
+                         }
 
-pageTitle :: Monad m => WebPage m -> T.Text
-pageTitle !(WebPage !x _ _ _ _ _ _ _) = x
-
-favicon :: Monad m => WebPage m -> T.Text
-favicon !(WebPage _ !x _ _ _ _ _ _) = x
-
-metaVars :: Monad m => WebPage m -> HtmlT m ()
-metaVars !(WebPage _ _ !x _ _ _ _ _) = x
-
-initScripts :: Monad m => WebPage m -> HtmlT m ()
-initScripts !(WebPage _ _ _ !x _ _ _ _) = x
-
-beforeStylesScripts :: Monad m => WebPage m -> HtmlT m ()
-beforeStylesScripts !(WebPage _ _ _ _ !x _ _ _) = x
-
-styles :: Monad m => WebPage m -> HtmlT m ()
-styles !(WebPage _ _ _ _ _ !x _ _) = x
-
-afterStylesScripts :: Monad m => WebPage m -> HtmlT m ()
-afterStylesScripts !(WebPage _ _ _ _ _ _ !x _) = x
-
-bodyScripts :: Monad m => WebPage m -> HtmlT m ()
-bodyScripts !(WebPage _ _ _ _ _ _ _ !x) = x
 
 instance Monad m => Monoid (WebPage m) where
   mempty = WebPage "" "" mempty mempty mempty mempty mempty mempty
@@ -72,3 +47,4 @@ template page content = doctypehtml_ $ mconcat $
       , bodyScripts page
       ]
   ]
+
