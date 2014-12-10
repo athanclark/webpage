@@ -1,10 +1,10 @@
-Name:                   generic-lucid-scaffold
+Name:                   webpage
 Version:                0.0.1
 Author:                 Athan Clark <athan.clark@gmail.com>
 Maintainer:             Athan Clark <athan.clark@gmail.com>
 License:                MIT
 License-File:           LICENSE
-Synopsis:               General-purpose web page scaffold for Lucid.
+Synopsis:               Organized and simple web page scaffold for blaze and lucid
 Description:
   This is a general organization scheme for web pages, implemented for Lucid.
   .
@@ -41,11 +41,14 @@ Library
   Default-Language:     Haskell2010
   HS-Source-Dirs:       src
   GHC-Options:          -Wall
-  Exposed-Modules:      Lucid.Scaffold
+  Exposed-Modules:      Web.Page.Types
+                        Web.Page.Lucid
+                        Web.Page.Blaze
   Build-Depends:        base >= 4 && < 5
                       , lucid >= 2.5
+                      , blaze-html
                       , text
 
 Source-Repository head
   Type:                 git
-  Location:             https://github.com/athanclark/generic-lucid-scaffold.git
+  Location:             https://github.com/athanclark/webpage.git
