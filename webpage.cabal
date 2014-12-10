@@ -21,7 +21,7 @@ Description:
   overload the particular areas with record syntax and stuff:
   .
   >  λ> let page = WebPage
-  >                  mempty
+  >                  "foo"
   >                  mempty
   >                  mempty
   >                  mempty
@@ -30,9 +30,8 @@ Description:
   >                  mempty
   >                  (script_ [src_ "jquery.js"] "")
   >
-  >  λ> let page' = page {pageTitle = "foo"}
   >
-  >  λ> template page' "some content"
+  >  λ> template page "some content"
   >
   >  ↪ "<!DOCTYPE HTML><html><head><title>foo</title><link href 
   >    rel=\"icon\"></head><body>some content<script 
