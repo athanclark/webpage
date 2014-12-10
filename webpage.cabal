@@ -6,10 +6,13 @@ License:                MIT
 License-File:           LICENSE
 Synopsis:               Organized and simple web page scaffold for blaze and lucid
 Description:
-  This is a general organization scheme for web pages, implemented for Lucid.
+  This is a general organization scheme for web pages, implemented for Lucid, 
+  and adapted for Blaze-html.
   .
   It's as easy as 1-2-3:
   .
+  >  import Web.Page.Lucid
+  >
   >  λ> renderText $ template mempty "some content"
   >
   >  ↪ "<!DOCTYPE HTML><html><head><title></title><link href 
@@ -18,7 +21,7 @@ Description:
   overload the particular areas with record syntax and stuff:
   .
   >  λ> let page = WebPage
-  >                  "foo"
+  >                  mempty
   >                  mempty
   >                  mempty
   >                  mempty
@@ -27,8 +30,9 @@ Description:
   >                  mempty
   >                  (script_ [src_ "jquery.js"] "")
   >
+  >  λ> let page' = page {pageTitle = "foo"}
   >
-  >  λ> template page "some content"
+  >  λ> template page' "some content"
   >
   >  ↪ "<!DOCTYPE HTML><html><head><title>foo</title><link href 
   >    rel=\"icon\"></head><body>some content<script 
