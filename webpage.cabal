@@ -1,21 +1,21 @@
 Name:                   webpage
-Version:                0.0.1
+Version:                0.0.2
 Author:                 Athan Clark <athan.clark@gmail.com>
 Maintainer:             Athan Clark <athan.clark@gmail.com>
 License:                MIT
 License-File:           LICENSE
 Synopsis:               Organized and simple web page scaffold for blaze and lucid
 Description:
-  This is a general organization scheme for web pages, implemented for Lucid, 
+  This is a general organization scheme for web pages, implemented for Lucid,
   and adapted for Blaze-html.
   .
   It's as easy as 1-2-3:
   .
   >  import Web.Page.Lucid
   >
-  >  λ> renderText $ template mempty "some content"
+  >  λ> renderText $ template def "some content"
   >
-  >  ↪ "<!DOCTYPE HTML><html><head><title></title><link href 
+  >  ↪ "<!DOCTYPE HTML><html><head><title></title><link href
   >    rel="icon"></head><body>some content</body></html>"
   .
   overload the particular areas with record syntax and stuff:
@@ -33,8 +33,8 @@ Description:
   >
   >  λ> template page "some content"
   >
-  >  ↪ "<!DOCTYPE HTML><html><head><title>foo</title><link href 
-  >    rel=\"icon\"></head><body>some content<script 
+  >  ↪ "<!DOCTYPE HTML><html><head><title>foo</title><link href
+  >    rel=\"icon\"></head><body>some content<script
   >    src=\"jquery.js\"></script></body></html>"
   .
 Cabal-Version:          >= 1.10
@@ -47,10 +47,13 @@ Library
   Exposed-Modules:      Web.Page.Types
                         Web.Page.Lucid
                         Web.Page.Blaze
+                        Web.Page.Hastache
   Build-Depends:        base >= 4 && < 5
                       , lucid >= 2.5
                       , blaze-html
+                      , hastache
                       , text
+                      , data-default
 
 Source-Repository head
   Type:                 git

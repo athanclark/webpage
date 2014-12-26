@@ -1,13 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE BangPatterns #-}
 
 module Web.Page.Types where
 
-
+import Data.Default
 import Data.Monoid
 
--- | Generic layout for a web page. We keep the data type purely parametric to 
+-- | Generic layout for a web page. We keep the data type purely parametric to
 -- allow for record-syntax overloading / reassignment, like this:
 -- .
 -- > page :: WebPage (Html ()) T.Text
@@ -22,7 +21,7 @@ data WebPage markup attr = WebPage {           pageTitle :: attr -- ^ Page title
                                    ,  afterStylesScripts :: markup -- ^ JavaScript to include after @\<style\>@ tags - ie: <http://modernizr.com Modernizr>
                                    ,         bodyScripts :: markup -- ^ JavaScript to include at the base of @\<body\>@
                                    }
+  deriving Show
 
-instance (Monoid m, Monoid a) => Monoid (WebPage m a) where
-  mempty = WebPage mempty mempty mempty mempty mempty mempty mempty mempty
-  mappend x _ = x -- Some people just want to watch the world burn.
+instance (Monoid m, Monoid a) => Default (WebPage m a) where
+  def = WebPage mempty mempty mempty mempty mempty mempty mempty mempty
