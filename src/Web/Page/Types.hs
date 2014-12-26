@@ -9,9 +9,10 @@ import Data.Monoid
 -- | Generic layout for a web page. We keep the data type purely parametric to
 -- allow for record-syntax overloading / reassignment, like this:
 -- .
--- > page :: WebPage (Html ()) T.Text
--- >
--- > page' = page {pageTitle = "foo!"}
+--
+-- >  page :: WebPage (Html ()) T.Text
+-- @ page' = page \{pageTitle = "foo!"\}@
+--
 data WebPage markup attr = WebPage {           pageTitle :: attr -- ^ Page title
                                    ,             favicon :: attr -- ^ Favicon url
                                    ,            metaVars :: markup -- ^ @\<meta\>@ tags
