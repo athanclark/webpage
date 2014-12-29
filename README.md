@@ -29,6 +29,11 @@ overload the particular areas with record syntax, or do whatever:
 > content will see from `metaVars`, for instance (unless you do multiple
 > renderings).
 
+> **Another Note**: We don't provide an instance for the beloved
+[Hamlet](http://hackage.haskell.org/package/shakespeare)
+> because under the hood, it's just Blaze-Html -
+>`$(runQ $ shamletFile "foo.hamlet")` gives us an `Html`.
+
 ## Contributing
 
 Fork, Pull-Request, repeat.
