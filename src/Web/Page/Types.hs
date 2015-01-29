@@ -14,7 +14,7 @@ import Data.Monoid
 -- @ page' = page \{pageTitle = "foo!"\}@
 --
 data WebPage markup attr = WebPage {           pageTitle :: attr -- ^ Page title
-                                   ,             favicon :: attr -- ^ Favicon url
+                                   ,             favicon :: markup -- ^ Favicon tags
                                    ,            metaVars :: markup -- ^ @\<meta\>@ tags
                                    ,         initScripts :: markup -- ^ JavaScript to include at the top of the page
                                    , beforeStylesScripts :: markup -- ^ JavaScript to include before @\<style\>@ tags

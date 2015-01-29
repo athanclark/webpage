@@ -25,9 +25,7 @@ template page content = doctypehtml_ $ mconcat $
       [ initScripts page
       , title_ $ toHtmlRaw $ pageTitle page
       , metaVars page
-      , link_ [ rel_ "icon"
-              , href_ $ favicon page
-              ]
+      , favicon page
       , beforeStylesScripts page
       , styles page
       , afterStylesScripts page

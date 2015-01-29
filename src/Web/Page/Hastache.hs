@@ -24,7 +24,7 @@ template page content = mconcat
   , initScripts page
   , "<title>" <> (LT.fromStrict $ pageTitle page) <> "</title>"
   , metaVars page
-  , "<link rel=\"icon\" href=\"" <> (LT.fromStrict $ favicon page) <> "\">"
+  , favicon page
   , beforeStylesScripts page
   , styles page
   , afterStylesScripts page

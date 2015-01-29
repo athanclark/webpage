@@ -21,7 +21,7 @@ template page content = do
       initScripts page
       (H.title $ H.toHtml $ pageTitle page)
       metaVars page
-      H.link H.! (A.rel "icon") H.! (A.href $ H.toValue (favicon page))
+      favicon page
       beforeStylesScripts page
       styles page
       afterStylesScripts page)
