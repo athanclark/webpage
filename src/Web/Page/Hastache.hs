@@ -1,11 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Web.Page.Hastache where
+module Web.Page.Hastache
+  ( module X
+  , template
+  ) where
 
-import Web.Page.Types
+import Web.Page.Types as X
 
-import Text.Hastache
-import Text.Hastache.Context
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as LT
 

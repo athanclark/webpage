@@ -1,13 +1,15 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE
+    OverloadedStrings
+  #-}
 
 module Web.Page.Blaze
-    ( module Web.Page.Types
-    , template ) where
+  ( module X
+  , template
+  ) where
 
-import Web.Page.Types
+import Web.Page.Types as X
 
 import qualified Text.Blaze.Html5 as H
-import qualified Text.Blaze.Html5.Attributes as A
 
 import qualified Data.Text as T
 

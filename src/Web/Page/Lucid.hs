@@ -1,25 +1,26 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE
+    OverloadedStrings
+  , ExtendedDefaultRules
+  , BangPatterns
+  #-}
 
 module Web.Page.Lucid
-    ( module Web.Page.Types
-    , template ) where
+  ( module X
+  , template
+  ) where
 
-import Web.Page.Types
+import Web.Page.Types as X
 
 import Lucid
-import Lucid.Base
 
 import qualified Data.Text as T
 
-import Data.Monoid
 
 -- | Generic page template implemented in Lucid.
 template :: Monad m =>
             WebPage (HtmlT m ()) T.Text -- ^ Page information
          -> HtmlT m () -- ^ Content to insert in @\<body\>@
-         -> HtmlT m () 
+         -> HtmlT m ()
 template page content = doctypehtml_ $ mconcat $
   [ head_ [] $ mconcat $
       [ initScripts page
