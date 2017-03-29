@@ -15,7 +15,7 @@ import Data.Monoid
 -- >  page :: WebPage (Html ()) T.Text
 -- @ page' = page \{pageTitle = "foo!"\}@
 --
-data WebPage markup attr = WebPage
+data WebPage markup attr attrSet = WebPage
   { pageTitle           :: attr -- ^ Page title
   , favicon             :: markup -- ^ Favicon tags
   , metaVars            :: markup -- ^ @\<meta\>@ tags
@@ -24,14 +24,16 @@ data WebPage markup attr = WebPage
   , styles              :: markup -- ^ Styles
   , afterStylesScripts  :: markup -- ^ JavaScript to include after @\<style\>@ tags - ie: <http://modernizr.com Modernizr>
   , bodyScripts         :: markup -- ^ JavaScript to include at the base of @\<body\>@
+  , bodyStyles          :: attrSet -- ^ Additional styles to assign to @\<body\>@
   } deriving (Show, Eq, Ord)
 
 
 instance ( Monoid m
          , Monoid a
-         ) => Monoid (WebPage m a) where
-  mempty = WebPage mempty mempty mempty mempty mempty mempty mempty mempty
-  mappend (WebPage t1 f1 m1 is1 bs1 s1 as1 b1) (WebPage t2 f2 m2 is2 bs2 s2 as2 b2) =
+         , Monoid s
+         ) => Monoid (WebPage m a s) where
+  mempty = WebPage mempty mempty mempty mempty mempty mempty mempty mempty mempty
+  mappend (WebPage t1 f1 m1 is1 bs1 s1 as1 b1 bss1) (WebPage t2 f2 m2 is2 bs2 s2 as2 b2 bss2) =
     WebPage (t1 `mappend` t2)
             (f1 `mappend` f2)
             (m1 `mappend` m2)
@@ -40,9 +42,11 @@ instance ( Monoid m
             (s1 `mappend` s2)
             (as1 `mappend` as2)
             (b1 `mappend` b2)
+            (bss1 `mappend` bss2)
 
 
 instance ( Monoid m
          , Monoid a
-         ) => Default (WebPage m a) where
+         , Monoid s
+         ) => Default (WebPage m a s) where
   def = mempty
