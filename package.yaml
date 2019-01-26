@@ -1,0 +1,20 @@
+name: webpage
+version: 0.0.5.1
+synopsis: Organized and simple web page scaffold for blaze and lucid
+description: Please see the README on Github at <https://github.com/athanclark/webpage#readme>
+maintainer: Athan Clark <athan.clark@gmail.com>
+license: BSD3
+github: athanclark/webpage
+category: Web
+
+ghc-options: -Wall
+
+dependencies:
+  - base >= 4.11 && < 5
+  - lucid >= 2.5
+  - blaze-html
+  - text
+  - data-default
+
+library:
+  source-dirs: src

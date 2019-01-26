@@ -10,7 +10,6 @@ import Web.Page.Types as X
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as LT
 
-import Data.Monoid
 
 -- | We choose to not interpolate the @WebPage@ data type as a JSON Hastache
 -- template value because I don't want the portions of @WebPage@ visible by
